@@ -17,18 +17,16 @@
 }
 
 .head{
+     font-family: 'escape';
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
 font-size: 80px;
-background: linear-gradient(144deg, #00F7FF 12.5%, #009FE8 86%);
+background: linear-gradient(144deg, #00F7FF 19.5%, #009FE8 86%);
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-font-weight: 400;
-line-height: normal;
-  font-family: 'escape';
-  padding: 100px 0 0 0;
-  font-weight: bold;
+font-weight: 700;
+  padding: 60px 0 0 0;
 }
 
 /* 👇 THIS is the important change */

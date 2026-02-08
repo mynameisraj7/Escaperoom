@@ -31,6 +31,7 @@ function Hero(){
         <>
         <section className='esback'>
             <header className='head'>Enter Password to ESCAPE</header>
+            <div className='team'>Team 1</div>
              <div className="container">
       <input type="password" value={value} readOnly className="display" />
 
