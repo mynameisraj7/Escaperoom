@@ -1,0 +1,90 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.esback{
+  min-height: 100vh;
+  width: 100%;
+   background:
+    linear-gradient(135deg, rgba(7, 11, 38, 0.5), rgba(13, 19, 46, 0.5)),
+    url("/back.jpeg");
+
+  /* center the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 👇 THIS is the important change */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 23.9px;
+  width: fit-content;    
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.04);
+   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+}
+
+.display {
+  width: 341.888px;
+height: 118.304px;
+border-radius: 11.95px;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.04);
+   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  column-gap: 60.31px;
+  row-gap: 15.9px;
+}
+
+button {
+  width: 74.09px;
+height: 77.675px;
+border-radius: 265.288px;
+  font-size: 24px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.04);
+   backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 4px 2px rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.enter {
+  background: green;
+  color: white;
+}
