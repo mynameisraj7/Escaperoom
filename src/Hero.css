@@ -29,11 +29,18 @@ font-weight: 700;
   padding: 60px 0 0 0;
 }
 
+.team{
+  text-align: center;
+  font-size: 26px;
+  font-family: "Impact";
+  color: white;
+}
+
 /* 👇 THIS is the important change */
 .container {
      margin-left: auto;
      margin-right: auto; 
-     margin-top: 60px;
+     margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
