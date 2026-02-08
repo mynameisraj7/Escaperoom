@@ -30,6 +30,7 @@ function Hero(){
     return(
         <>
         <section className='esback'>
+            <header className='head'>Enter Password to ESCAPE</header>
              <div className="container">
       <input type="password" value={value} readOnly className="display" />
 
