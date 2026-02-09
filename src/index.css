@@ -1,6 +1,7 @@
 @font-face {
-  font-family: 'escape';
-  src: url('./assets/fonts/EscapeGreat.ttf') format('truetype');
-  font-weight:600;
+  font-family: "EscapeGreat";
+  src:url("./assets/fonts/EscapeGreat.woff2") format("woff2"), 
+      url('./assets/fonts/EscapeGreat.ttf') format('truetype');
+  font-weight:400;
   font-style: normal;
 }

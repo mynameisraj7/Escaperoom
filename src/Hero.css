@@ -17,16 +17,18 @@
 }
 
 .head{
-     font-family: 'escape';
+     font-family:"EscapeGreat";
+     font-size: 80px;
   text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
-font-size: 80px;
-background: linear-gradient(144deg, #00F7FF 19.5%, #009FE8 86%);
+  text-shadow: 4px 2px 4px rgba(9, 9, 0, 0.50);
+background: linear-gradient(360deg, #00F7FF 19.5%, #009FE8 86%);
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-font-weight: 700;
+-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 60px 0 0 0;
+  letter-spacing: 2px;
 }
 
 .team{
@@ -40,7 +42,7 @@ font-weight: 700;
 .container {
      margin-left: auto;
      margin-right: auto; 
-     margin-top: 30px;
+     margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
