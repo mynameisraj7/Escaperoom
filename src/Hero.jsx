@@ -5,49 +5,70 @@ import "./Hero.css";
 function Hero() {
   const navigate = useNavigate();
   const location = useLocation();
+  const timerRef = useRef(null);
 
   const teamPins = ["1234", "5678", "2468", "1357", "9999", "0000"];
   const totalTeams = teamPins.length;
 
   const [value, setValue] = useState("");
   const [teamIndex, setTeamIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(120);
 
-  const timerRef = useRef();
+  // 🔥 Load timers from SESSION storage (not localStorage)
+  const [teamTimes, setTeamTimes] = useState(() => {
+    const saved = sessionStorage.getItem("escapeTeamTimes");
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length === totalTeams) {
+          return parsed;
+        }
+      } catch {}
+    }
+    return Array(totalTeams).fill(120);
+  });
 
-  // 🔁 Sync team from route state
+  const timeLeft = teamTimes[teamIndex];
+
+  // 🔁 Sync team turn
   useEffect(() => {
     if (location.state?.nextTeam !== undefined) {
       setTeamIndex(location.state.nextTeam % totalTeams);
     }
-  }, [location.state]);
+  }, [location.state, totalTeams]);
 
-  // ⏳ TIMER
+  // 💾 Save timers (session only)
   useEffect(() => {
+    sessionStorage.setItem("escapeTeamTimes", JSON.stringify(teamTimes));
+  }, [teamTimes]);
+
+  // ⏳ Timer logic
+  useEffect(() => {
+    if (teamTimes[teamIndex] <= 0) return;
+
     timerRef.current = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
+      setTeamTimes(prev => {
+        const newTimes = [...prev];
+
+        if (newTimes[teamIndex] <= 1) {
           clearInterval(timerRef.current);
+          newTimes[teamIndex] = 0;
+
           navigate("/trapped", {
             state: { nextTeam: (teamIndex + 1) % totalTeams }
           });
-          return 0;
+        } else {
+          newTimes[teamIndex] -= 1;
         }
-        return prev - 1;
+
+        return newTimes;
       });
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, [teamIndex, navigate]);
-
-  // Reset inputs for new team
-  useEffect(() => {
-    setTimeLeft(120);
-    setValue("");
-  }, [teamIndex]);
+  }, [teamIndex, navigate, totalTeams]);
 
   const handleNumberClick = (num) => {
-    if (value.length < 6) setValue(value + num);
+    if (value.length < 6) setValue(v => v + num);
   };
 
   const handleClear = () => setValue("");
@@ -59,7 +80,7 @@ function Hero() {
       navigate("/escaped", {
         state: {
           team: teamIndex + 1,
-          timeTaken: 120 - timeLeft,
+          timeTaken: 120 - teamTimes[teamIndex],
           nextTeam: (teamIndex + 1) % totalTeams
         }
       });
@@ -67,14 +88,13 @@ function Hero() {
       navigate("/wrongp", {
         state: {
           team: teamIndex + 1,
-          timeLeft,
+          timeLeft: teamTimes[teamIndex],
           nextTeam: (teamIndex + 1) % totalTeams
         }
       });
     }
 
     setValue("");
-    setTimeLeft(0);
   };
 
   const formatTime = (s) =>
