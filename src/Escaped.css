@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.esaback{
+  min-height: 100vh;
+  width: 100%;
+   background:
+    linear-gradient(135deg, rgba(7, 11, 38, 0.5), rgba(13, 19, 46, 0.5)),
+    url("/back.jpeg");
+
+  /* center the container */
+  display: flex;
+  flex-direction: column; 
+}
+
+.header{
+     font-family:"EscapeGreat";
+     font-size: 140px;
+  text-align: center;
+  text-shadow: 7px 6px 5px rgba(0, 0, 0, 0.50);
+background: linear-gradient(180deg, #9EE3C9 0%, #33CD92 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 210px;
+  letter-spacing: 2.5px;
+}
+.es{
+    color: #FFF;
+text-align: center;
+font-family: Helvetica;
+font-size: 35px;
+margin-top: 50px;
+line-height: 1.2;
+font-weight: 200;
+}
+.time{
+    color: #FFF;
+text-align: center;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 35px;
+margin-top: 120px;
+line-height: 1.2;
+font-weight: 100;
+}

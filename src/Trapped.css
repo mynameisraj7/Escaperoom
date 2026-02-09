@@ -1,0 +1,41 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.traback{
+  min-height: 100vh;
+  width: 100%;
+   background:
+    linear-gradient(135deg, rgba(7, 11, 38, 0.5), rgba(13, 19, 46, 0.5)),
+    url("/back.jpeg");
+
+  /* center the container */
+  display: flex;
+  flex-direction: column; 
+}
+
+.theader{
+     font-family:"EscapeGreat";
+     font-size: 142px;
+  text-align: center;
+  text-shadow: 12px 9px 9px rgba(12, 0, 0, 0.50);
+background: linear-gradient(180deg,#F00);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 210px;
+  letter-spacing: 3px;
+}
+.trap{
+    color: #FFF;
+text-align: center;
+font-family: Helvetica;
+font-size: 35px;
+margin-top: 50px;
+line-height: 1.2;
+font-weight: 200;
+}
