@@ -33,7 +33,7 @@ background-clip: text;
 .es{
     color: #FFF;
 text-align: center;
-font-family: Helvetica;
+font-family: "Poppins";
 font-size: 35px;
 margin-top: 50px;
 line-height: 1.2;
@@ -42,9 +42,9 @@ font-weight: 200;
 .time{
     color: #FFF;
 text-align: center;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 35px;
 margin-top: 120px;
 line-height: 1.2;
+font-family: "Poppins";
 font-weight: 100;
 }

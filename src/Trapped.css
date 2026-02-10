@@ -33,7 +33,8 @@ background-clip: text;
 .trap{
     color: #FFF;
 text-align: center;
-font-family: Helvetica;
+font-family: "Poppins";
+  font-weight: 200;
 font-size: 35px;
 margin-top: 50px;
 line-height: 1.2;

@@ -35,7 +35,8 @@ background-clip: text;
 .team{
   text-align: center;
   font-size: 26px;
-  font-family: Helvetica;
+  font-family: "Poppins";
+  font-weight: 200;
   margin-top: 7px;
   color: white;
 }
@@ -120,6 +121,7 @@ border-radius: 265.288px;
   margin-top: 20px;
   font-size: 26px;
   color: #fff;
-  font-family: Helvetica;
+  font-family: "Poppins";
+  font-weight: 200;
   text-align: center;
 }

@@ -33,15 +33,24 @@ background-clip: text;
 .wrongp{
     color: #FFF;
 text-align: center;
-font-family: Helvetica;
+font-family: "Poppins";
+  font-weight: 200;
 font-size: 35px;
 margin-top: 50px;
 line-height: 1.2;
 font-weight: 200;
 }
+
+.wrongp b{
+  font-family: "Poppins";
+  font-weight: 200;
+}
+
 .backbutton{
     width: 300px;
     height: 70px;
+    font-family: "Poppins";
+  font-weight: 200;
     border-radius: 24px;
     margin: auto;
 }
