@@ -7,68 +7,71 @@ function Hero() {
   const location = useLocation();
   const timerRef = useRef(null);
 
-  const teamPins = ["1234", "5678", "2468", "1357", "9999", "0000"];
-  const totalTeams = teamPins.length;
+  const GAME_TIME = 300; // 7 minutes
+  const teamId = location.state?.teamId;
+
+  // 🔐 Passwords for 20 teams
+  const teamPasswords = {
+    TEAM1: "1234",
+    TEAM2: "5678",
+    TEAM3: "2468",
+    TEAM4: "1357",
+    TEAM5: "9999",
+    TEAM6: "0000",
+    TEAM7: "1111",
+    TEAM8: "2222",
+    TEAM9: "3333",
+    TEAM10: "4444",
+    TEAM11: "5555",
+    TEAM12: "6666",
+    TEAM13: "7777",
+    TEAM14: "8888",
+    TEAM15: "4321",
+    TEAM16: "8765",
+    TEAM17: "2460",
+    TEAM18: "1350",
+    TEAM19: "9090",
+    TEAM20: "1212"
+  };
+
+  const correctPin = teamPasswords[teamId];
 
   const [value, setValue] = useState("");
-  const [teamIndex, setTeamIndex] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(() => {
+  const saved = sessionStorage.getItem(`timer_${teamId}`);
+  const parsed = saved ? parseInt(saved) : GAME_TIME;
 
-  // 🔥 Load timers from SESSION storage (not localStorage)
-  const [teamTimes, setTeamTimes] = useState(() => {
-    const saved = sessionStorage.getItem("escapeTeamTimes");
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length === totalTeams) {
-          return parsed;
-        }
-      } catch {}
+  // If old timer was 7 min, reset to new 5 min
+  return parsed > GAME_TIME ? GAME_TIME : parsed;
+});
+
+
+  // 🚫 Block if no login
+  useEffect(() => {
+    if (!teamId) navigate("/");
+  }, [teamId, navigate]);
+
+  // 💾 Save timer for THIS team only
+  useEffect(() => {
+    sessionStorage.setItem(`timer_${teamId}`, timeLeft);
+  }, [timeLeft, teamId]);
+
+  // ⏳ Countdown
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      navigate("/trapped", { state: { teamId } });
+      return;
     }
-    return Array(totalTeams).fill(120);
-  });
-
-  const timeLeft = teamTimes[teamIndex];
-
-  // 🔁 Sync team turn
-  useEffect(() => {
-    if (location.state?.nextTeam !== undefined) {
-      setTeamIndex(location.state.nextTeam % totalTeams);
-    }
-  }, [location.state, totalTeams]);
-
-  // 💾 Save timers (session only)
-  useEffect(() => {
-    sessionStorage.setItem("escapeTeamTimes", JSON.stringify(teamTimes));
-  }, [teamTimes]);
-
-  // ⏳ Timer logic
-  useEffect(() => {
-    if (teamTimes[teamIndex] <= 0) return;
 
     timerRef.current = setInterval(() => {
-      setTeamTimes(prev => {
-        const newTimes = [...prev];
-
-        if (newTimes[teamIndex] <= 1) {
-          clearInterval(timerRef.current);
-          newTimes[teamIndex] = 0;
-
-          navigate("/trapped", {
-            state: { nextTeam: (teamIndex + 1) % totalTeams }
-          });
-        } else {
-          newTimes[teamIndex] -= 1;
-        }
-
-        return newTimes;
-      });
+      setTimeLeft(t => t - 1);
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, [teamIndex, navigate, totalTeams]);
+  }, [timeLeft, navigate, teamId]);
 
   const handleNumberClick = (num) => {
-    if (value.length < 6) setValue(v => v + num);
+    if (value.length < 7) setValue(v => v + num);
   };
 
   const handleClear = () => setValue("");
@@ -76,21 +79,13 @@ function Hero() {
   const handleEnter = () => {
     clearInterval(timerRef.current);
 
-    if (value === teamPins[teamIndex]) {
+    if (value === correctPin) {
       navigate("/escaped", {
-        state: {
-          team: teamIndex + 1,
-          timeTaken: 120 - teamTimes[teamIndex],
-          nextTeam: (teamIndex + 1) % totalTeams
-        }
+        state: { teamId, timeTaken: GAME_TIME - timeLeft }
       });
     } else {
       navigate("/wrongp", {
-        state: {
-          team: teamIndex + 1,
-          timeLeft: teamTimes[teamIndex],
-          nextTeam: (teamIndex + 1) % totalTeams
-        }
+        state: { teamId, timeLeft }
       });
     }
 
@@ -103,7 +98,7 @@ function Hero() {
   return (
     <section className="esback">
       <header className="head">Enter Password to ESCAPE</header>
-      <div className="team">Team {teamIndex + 1}'s Turn</div>
+      <div className="team">Team {teamId}</div>
 
       <div className="container">
         <input type="password" value={value} readOnly className="display" />

@@ -5,7 +5,7 @@ function Wrongp() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const team = location.state?.team || "Unknown";
+  const teamId = location.state?.teamId;
   const timeLeft = location.state?.timeLeft ?? 0;
 
   const formatTime = (seconds) => {
@@ -23,9 +23,13 @@ function Wrongp() {
         You have <b>{formatTime(timeLeft)} left!</b>
       </div>
 
-      <button className="backbutton" onClick={() => navigate("/", { state: { nextTeam: team } })}>
-            Try Again
-      </button>
+      <button
+  className="backbutton"
+  onClick={() => navigate("/hero", { state: { teamId } })}
+>
+  Try Again
+</button>
+
 
     </section>
   );

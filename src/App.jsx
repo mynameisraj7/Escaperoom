@@ -3,12 +3,14 @@ import Hero from "./Hero";
 import Escaped from "./Escaped";
 import Trapped from "./Trapped";
 import Wrongp from "./Wrongp";
+import Logingame from "./Logingame";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<Logingame />} />
+        <Route path="/hero" element={<Hero />} />
         <Route path="/escaped" element={<Escaped />} />
         <Route path="/trapped" element={<Trapped />} />
         <Route path="/wrongp" element={<Wrongp />} />
