@@ -12,26 +12,26 @@ function Hero() {
 
   // 🔐 Passwords for 20 teams
   const teamPasswords = {
-    TEAM1: "1234",
-    TEAM2: "5678",
-    TEAM3: "2468",
-    TEAM4: "1357",
-    TEAM5: "9999",
-    TEAM6: "0000",
-    TEAM7: "1111",
-    TEAM8: "2222",
-    TEAM9: "3333",
-    TEAM10: "4444",
-    TEAM11: "5555",
-    TEAM12: "6666",
-    TEAM13: "7777",
-    TEAM14: "8888",
-    TEAM15: "4321",
-    TEAM16: "8765",
-    TEAM17: "2460",
-    TEAM18: "1350",
-    TEAM19: "9090",
-    TEAM20: "1212"
+    Escr1: "1234",
+    Escr2: "5678",
+    Escr3: "2468",
+    Escr4: "1357",
+    Escr5: "9999",
+    Escr6: "0000",
+    Escr7: "1111",
+    Escr8: "2222",
+    Escr9: "3333",
+    Escr10: "4444",
+    Escr11: "5555",
+    Escr12: "6666",
+    Escr13: "7777",
+    Escr14: "8888",
+    Escr15: "4321",
+    Escr16: "8765",
+    Escr17: "2460",
+    Escr18: "1350",
+    Escr19: "9090",
+    Escr20: "1212"
   };
 
   const correctPin = teamPasswords[teamId];

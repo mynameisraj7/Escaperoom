@@ -7,10 +7,10 @@ function Logingame() {
   const navigate = useNavigate();
 
   const validTeams = [
-    "TEAM1","TEAM2","TEAM3","TEAM4","TEAM5",
-    "TEAM6","TEAM7","TEAM8","TEAM9","TEAM10",
-    "TEAM11","TEAM12","TEAM13","TEAM14","TEAM15",
-    "TEAM16","TEAM17","TEAM18","TEAM19","TEAM20"
+    "Escr1","Escr2","Escr3","Escr4","Escr5",
+    "Escr6","Escr7","Escr8","Escr9","Escr10",
+    "Escr11","Escr12","Escr13","Escr14","Escr15",
+    "Escr16","Escr17","Escr18","Escr19","Escr20"
   ];
 
   const handleEnter = () => {
