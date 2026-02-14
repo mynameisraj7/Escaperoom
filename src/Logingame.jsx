@@ -26,7 +26,7 @@ function Logingame() {
 
   return (
     <section className="logback">
-      <header className="log">Enter Your Team Id</header>
+      <header className="log">Enter Your Tm Id</header>
 
       <input
         type="text"
